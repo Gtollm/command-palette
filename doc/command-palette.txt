@@ -1,0 +1,74 @@
+*command-palette.txt* Find commands the easy way.
+*CommandPalette*
+
+License: MIT
+Author: Tolmachev Gregory <https://github.com/Gtollm/>
+
+=============================================================================
+CONTENTS                                                   *CommandPalette-TOC*
+
+    1. Commands...............|command-palette-commands|
+    2. Configuration..........|command-palette-configuration|
+
+=============================================================================
+1. Commands                                            *CommandPaletteCommands*
+
+CommandPalette                                               *:CommandPalette*
+
+    Opens the command palette with fuzzy search based on frequencies.
+
+CommandPaletteClearHistory                                           *:CommandPaletteClearHistory*
+
+    Clears history of all commands run in this or earlier sessions.
+
+CommandPaletteTopCommands                                           *:CommandPaletteTopCommands*
+
+    Show top n most frequently used commands in the Command Palette.
+
+=============================================================================
+2. Configuration                                  *CommandPaletteConfiguration*
+
+    Command Pallete doesn't really need any configuration, the only things
+    that can be configured are the default keymap and number of top elements
+    to output.
+
+Default keymap                                    *CommandPaletteDefaultKeymap*
+
+    A default keymap can be configured by calling the `setup` function and
+    passing the keymap to the `palette_keymap` key.
+
+    For example, lazy.nvim users can add the following code to their
+    `init.lua` file:
+>
+    {
+      'Gtollm/command-palette.nvim',
+       config = function()
+            local plugin = require('command-palette')
+
+            plugin.set_options({
+                palette_keymap = "cp", 
+            })
+        end,
+    },
+<
+Default top history                                    *CommandPaletteDefaultTopHistory*
+
+    A default top history can be configured by calling the `setup` function and
+    passing the number to the `top_history` key.
+
+    For example, lazy.nvim users can add the following code to their
+    `init.lua` file:
+>
+    {
+      'Gtollm/command-palette.nvim',
+       config = function()
+            local plugin = require('command-palette')
+
+            plugin.set_options({
+                top_history = 10,
+            })
+        end,
+    },
+<
+=============================================================================
+vim:tw=78:ts=2:sts=2:sw=2:ft=help:norl:
