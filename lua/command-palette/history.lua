@@ -1,7 +1,5 @@
 local M = {}
-local config = require("command-palette.config")
 local history_file = vim.fn.stdpath("data") .. "/command-palette-history.json"
-print(history_file)
 M.history = {}
 
 
