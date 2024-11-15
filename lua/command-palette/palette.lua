@@ -97,8 +97,12 @@ function M.show()
                 if key == vim.api.nvim_replace_termcodes("<CR>", true, true, true) then
                     local cmd = filtered_commands[selected_index]
                     vim.api.nvim_win_close(results_win, true)
-                    vim.cmd(cmd)
-                    history.track_command(cmd)
+                    if cmd then
+                        vim.cmd(cmd)
+                        history.track_command(cmd)
+                    else
+                        print("No command chosen")
+                    end
                     break
                 elseif key == vim.api.nvim_replace_termcodes("<Esc>", true, true, true) then
                     vim.api.nvim_win_close(results_win, true)
