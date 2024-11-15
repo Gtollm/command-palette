@@ -87,10 +87,6 @@ function M.show()
 
     --- Input of quires handler
     local function handle_input()
-        vim.api.nvim_command('augroup CommandPalette')
-        vim.api.nvim_command('autocmd!')
-        vim.api.nvim_command('autocmd InsertCharPre * lua require("command-palette.palette").on_insert_char()')
-        vim.api.nvim_command('augroup END')
         refresh_search()
         while true do
             local char = vim.fn.getchar()
